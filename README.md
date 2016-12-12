@@ -14,26 +14,24 @@ Javascript Tutorials:
 - [x] Programming Step-by-Step: Object-Oriented JavaScript
 - [x] JQuery Basics
 - [x] JavaScript Basics
-- [x] JavaScript Loops, Arrays and Objects
+- [x] JavaScript Loops, Arrays and Objects (Objects only)
 - [x] Node.js Basics
-- [ ] Ember.js
-- [x] Build a Simple Dynamic Site with Node.js
 - [x] npm Basics
-- [ ] Angular Basics
 - [x] Express Basics
-- [x] Deploy a Node Application to Heroku
-- [x] JavaScript Unit Testing
-- [x] Build a REST API with Express
-- [ ] Gulp Basics
-- [x] The Module Pattern in JavaScript
-- [ ] Using JQuery Plugins
 
 Databases:
-- [ ] Modifying Data with SQL
+- [x] Modifying Data with SQL
 - [x] Reporting with SQL
 - [x] SQL Basics
-- [ ] Mongo Basics
 - [ ] The artifact produced is properly licensed, preferably with the [MIT license](https://opensource.org/licenses/MIT).
+
+Stretch Goals:
+- [x] Build a REST API with Express
+- [x] Build a Simple Dynamic Site with Node.js
+- [x] Deploy a Node Application to Heroku
+- [x] The Module Pattern in JavaScript
+- [x] Mongo Basics
+
 
 ---
 
