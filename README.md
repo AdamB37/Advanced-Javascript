@@ -11,9 +11,7 @@ Well now you can get an AWESOME, SOLID FOUNDATION to help you with this journey.
 ## Specifications
 
 Javascript Tutorials:
-- [x] Programming Step-by-Step: Object-Oriented JavaScript
 - [x] JQuery Basics
-- [x] JavaScript Basics
 - [x] JavaScript Loops, Arrays and Objects (Objects only)
 - [x] Node.js Basics
 - [x] npm Basics
