@@ -13,8 +13,8 @@ Well now you can get an AWESOME, SOLID FOUNDATION to help you with this journey.
 Javascript Tutorials:
 - [x] JQuery Basics
 - [x] JavaScript Loops, Arrays and Objects (Objects only)
-- [x] Node.js Basics
-- [x] npm Basics
+- [x] Node.js Basics (nodeschool.io)
+- [x] npm Basics (nodeschool.io)
 - [x] Express Basics
 
 Databases:
