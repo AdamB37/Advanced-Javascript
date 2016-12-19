@@ -1,3 +1,57 @@
+/*
+/Problem 2
+var acc = 0;
+for (var i = 2; i < process.argv.length;i++){
+  acc = acc + Number(process.argv[i]);
+}
+console.log(acc);
+*/
+
+/* Problem 3
+var fs = require('fs');
+//reads file which will return an object
+var buf = fs.readFileSync(process.argv[2]);
+//convert to object to string
+var str = buf.toString();
+//converts string to array at /n
+var x = str.split("\n");
+//prints index index position
+console.log(x.length-1);
+*/
+
+/* Problem 4
+var fs = require('fs');
+
+fs.readFile(process.argv[2],function(err,data){
+    if(err){
+        console.log('error');
+    }
+    var lines=data.toString().split('\n');
+    console.log(lines.length-1);
+});
+*/
+
+/*//Filter Problem 5
+var fs = require('fs');
+var path = require('path');
+const ext = '.' + process.argv[3];
+//list is an array of file string names
+fs.readdir(process.argv[2],(err, list) => {
+    if(err){
+      throw err;
+        console.log('error');
+  }
+let matchFile = (file) => {
+  //returns true or false value
+  return path.extname(file) === ext;
+}
+
+list.filter(matchFile).forEach( (element) => {
+//for each returns value at index i
+  console.log(element);
+});
+});
+
 MAKE IT MODULAR
 //program.js
 var mymodule = require('./mymodule.js');
