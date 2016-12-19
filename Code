@@ -1,0 +1,53 @@
+MAKE IT MODULAR
+//program.js
+var mymodule = require('./mymodule.js');
+mymodule(process.argv[2],process.argv[3], (err,data) => {
+  if(err){
+    throw err;
+    console.log("error");
+  }
+  //behind curtain magic
+  data.forEach( (element) => {
+    console.log(element);
+  });
+});
+//module.js
+var fs = require('fs');
+var path = require('path');
+
+
+module.exports = (dirName, fileExt, callback) => {
+
+  const ext = '.' + fileExt;
+
+
+  fs.readdir (dirName, (err,list) => {
+    if(err){
+        return callback(err);
+        console.log("error");
+    }
+    var matchFile = (file) => {
+      return path.extname(file) == ext;
+    }
+
+    callback(null,list.filter(matchFile));
+  });
+};
+
+//////////////////////
+HTTP CLIENT
+var http = require('http');
+var url = process.argv[2];
+
+http.get(url, (response) => {
+    response.setEncoding("utf8");
+    response.on("data", (data) => {
+        console.log(data);
+    });
+    response.on("error", (err) => {
+        console.log("error");
+    });
+});
+
+
+//////////////////////
