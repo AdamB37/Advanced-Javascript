@@ -51,3 +51,87 @@ http.get(url, (response) => {
 
 
 //////////////////////
+HTTP COLLECT
+var http = require('http');
+var url = process.argv[2];
+
+http.get(url, (response) => {
+    response.setEncoding("utf8");
+    var stream = "";
+    response.on("data", (data) => {
+        stream += data;
+    });
+    response.on("error", (err) => {
+        //console.log("error");
+    });
+    response.on("end", () => {
+        console.log(stream.length);
+        console.log(stream);
+    });
+});
+
+//////////////////
+JUGGLING ASYNC
+
+var http = require('http');
+var urls = [process.argv[2],process.argv[3],process.argv[4]];
+
+var textStream = [];
+
+var loadText = function () {
+  var url = urls.shift();
+  if(!url){
+    textStream.forEach((element) => console.log(element));
+    return;
+  }
+  var text = "";
+  http.get(url, (response) => {
+      response.setEncoding("utf8");
+      response.on("data", (data) => {
+          text += data;
+          //console.log(text);
+      });
+      response.on("error", (err) => {
+          //console.log("error");
+      });
+      response.on("end", () => {
+        textStream.push(text);
+        loadText();
+      });
+
+  });
+
+};
+
+loadText();
+
+////////////////
+TIME SERVER
+
+var net = require('net');
+var port = process.argv[2];
+
+var server = net.createServer( (socket) => {
+  var date = new Date();
+  socket.write(date.getFullYear() + "-" +
+              ("0"+(date.getMonth()+1)).slice(-2) + "-" +
+              ("0"+date.getDate()).slice(-2) + " " +
+              date.getHours() + ":" +
+              date.getMinutes()+ "\n");
+  socket.end();
+});
+server.listen(port);
+
+/////////////////
+HTTP SERVERS
+
+var http = require('http');
+var fs = require('fs');
+var port = process.argv[2];
+var file = process.argv[3];
+var fileStream = fs.createReadStream(file);
+var server = http.createServer( (req, res) => {
+  if(req) fileStream.pipe(res)
+});
+
+server.listen(port);
